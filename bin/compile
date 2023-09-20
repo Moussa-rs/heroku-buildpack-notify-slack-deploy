@@ -34,6 +34,11 @@ else
   SLACK_MESSAGE="*$HEROKU_APP_NAME* was deployed\n>$AUTHOR_NAME - $AUTHOR_EMAIL\n\n\`\`\`\n$COMMIT_MESSAGE\n\`\`\`\n$COMMIT_URL"
 fi
 
+# Adding the review app link
+if [[ -n "${HEROKU_APP_URL}" ]]; then
+  SLACK_MESSAGE="$SLACK_MESSAGE\nReview app link: <$HEROKU_APP_URL>"
+fi
+
 echo "-----> Notifying Slack that the deploy is complete"
 echo "       $SLACK_MESSAGE"
 curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"$SLACK_MESSAGE\"}" $SLACK_DEPLOYMENT_WEBHOOK_URL
