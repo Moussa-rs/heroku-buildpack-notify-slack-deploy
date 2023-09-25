@@ -35,8 +35,8 @@ else
 fi
 
 # Adding the review app link
-if [[ -n "${HEROKU_APP_URL}" ]]; then
-  SLACK_MESSAGE="$SLACK_MESSAGE\nReview app link: <$HEROKU_APP_URL>"
+if [[ -n "${HEROKU_PR_NUMBER}" ]]; then
+  SLACK_MESSAGE="$SLACK_MESSAGE\nReview App(PR: $HEROKU_BRANCH) link: <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com>"
 fi
 
 echo "-----> Notifying Slack that the deploy is complete"
