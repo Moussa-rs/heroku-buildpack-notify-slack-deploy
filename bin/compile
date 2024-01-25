@@ -16,6 +16,12 @@ export_env_dir() {
 
 export_env_dir $3
 
+# Check if PR name contains 'dependabot', and exit if it does
+if [[ $HEROKU_BRANCH == *"dependabot"* ]]; then
+  echo "Skipping Slack notification for dependabot PR"
+  exit 0
+fi
+
 SLACK_MESSAGE="*$HEROKU_APP_NAME* was deployed"
 
 if [[ -z "${DEPLOY_NOTIFY_GITHUB_AUTH_TOKEN}" || -z "${DEPLOY_NOTIFY_GITHUB_ORG}" || -z "${DEPLOY_NOTIFY_GITHUB_PROJECT}" ]]; then
@@ -36,7 +42,11 @@ fi
 
 # Adding the review app link
 if [[ -n "${HEROKU_PR_NUMBER}" ]]; then
-  SLACK_MESSAGE="$SLACK_MESSAGE\nReview App(PR: $HEROKU_BRANCH) link: <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\nReview App (PR: $HEROKU_BRANCH)"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-Robert Account Access link: <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=f0su06zCRFKWaAEURZ9SCr3b064vz0DNpRQ>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-RevSetter Account Access link (Haydar): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=CEsxQOZcQv-CSmq30lru_BSdGbhNQr7-kgc>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-Socialnatives Account Access link (Lamiae): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=1JsVyO5OSKWOaCYYsCOfdEelqWKcKbQBa5k>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-Zuddl Account Access link (Saumitra): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=l153_TyxSf-5gznyo4WgpimRsv2-5ZZRpko>"
 fi
 
 echo "-----> Notifying Slack that the deploy is complete"
