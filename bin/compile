@@ -48,6 +48,7 @@ if [[ -n "${HEROKU_PR_NUMBER}" ]]; then
   SLACK_MESSAGE="$SLACK_MESSAGE\n-Socialnatives Account Access link (Lamiae): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=1JsVyO5OSKWOaCYYsCOfdEelqWKcKbQBa5k>"
   SLACK_MESSAGE="$SLACK_MESSAGE\n-Zuddl Account Access link (Saumitra): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=l153_TyxSf-5gznyo4WgpimRsv2-5ZZRpko>"
   SLACK_MESSAGE="$SLACK_MESSAGE\n-OrgChart Account Access link (Jennifer): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=vUq3MunKQB6lmgl6wSutkUOfZdfAjfF3nJg>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-Praesidium Account Access link (Lindsay): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=7UqGkERNS_6UYvT3BJQFV6zmAMCqYP3bJ2A>"
 fi
 
 echo "-----> Notifying Slack that the deploy is complete"
