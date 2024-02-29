@@ -43,10 +43,11 @@ fi
 # Adding the review app link
 if [[ -n "${HEROKU_PR_NUMBER}" ]]; then
   SLACK_MESSAGE="$SLACK_MESSAGE\nReview App (PR: $HEROKU_BRANCH)"
-  SLACK_MESSAGE="$SLACK_MESSAGE\n-Robert Account Access link: <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=f0su06zCRFKWaAEURZ9SCr3b064vz0DNpRQ>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-Robert Account Access link: <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=UB3pXM4QR6eLpU1qe61Kt_X2onc6_Xig4m8>"
   SLACK_MESSAGE="$SLACK_MESSAGE\n-RevSetter Account Access link (Haydar): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=CEsxQOZcQv-CSmq30lru_BSdGbhNQr7-kgc>"
   SLACK_MESSAGE="$SLACK_MESSAGE\n-Socialnatives Account Access link (Lamiae): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=1JsVyO5OSKWOaCYYsCOfdEelqWKcKbQBa5k>"
   SLACK_MESSAGE="$SLACK_MESSAGE\n-Zuddl Account Access link (Saumitra): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=l153_TyxSf-5gznyo4WgpimRsv2-5ZZRpko>"
+  SLACK_MESSAGE="$SLACK_MESSAGE\n-OrgChart Account Access link (Jennifer): <https://revsetter-portal-pr-$HEROKU_PR_NUMBER.herokuapp.com/magic/login/?token=vUq3MunKQB6lmgl6wSutkUOfZdfAjfF3nJg>"
 fi
 
 echo "-----> Notifying Slack that the deploy is complete"
